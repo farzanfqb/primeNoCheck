@@ -1,4 +1,3 @@
-package palin;
 import java.util.Scanner;
 class Reuse {
 
@@ -7,8 +6,9 @@ class Reuse {
     public void reuse() {
         try {
             System.out.println("ENTER NUMBER");
-            Scanner num = new Scanner(System.in);
-            numb = num.nextInt();
+            try (Scanner num = new Scanner(System.in)) {
+                numb = num.nextInt();
+            }
         } catch (Exception e) {
             System.out.println("enter valid number");
             reuse();
@@ -16,7 +16,7 @@ class Reuse {
     }
 }
 class Reverse {
-    int rev =0;
+    int rev = 0;
     int rem = 0;
     public int rev(int numb) {
         int n = Reuse.numb;
@@ -25,7 +25,7 @@ class Reverse {
             rev = rev * 10 + rem;
             n = n / 10;
         }
-    return rev;
+        return rev;
     }
 }
 class PalindromeCheck {
@@ -33,7 +33,7 @@ class PalindromeCheck {
         if (a == b) {
             System.out.println(b + " is palindrome" + a);
         } else
-            System.out.println(b + " is not palindrome"+a);
+            System.out.println(b + " is not palindrome" + a);
     }
 }
 class IsPalindrome {
@@ -42,6 +42,6 @@ class IsPalindrome {
         obj.reuse();
         Reverse obj1 = new Reverse();
         PalindromeCheck obj2 = new PalindromeCheck();
-        obj2.check(obj1.rev(Reuse.numb),Reuse.numb);
+        obj2.check(obj1.rev(Reuse.numb), Reuse.numb);
     }
 }

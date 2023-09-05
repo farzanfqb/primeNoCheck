@@ -62,6 +62,14 @@ while (true){
 }
 }
 }
+class Checkout{
+    public Checkout(int num , int output){
+         if (num ==  output){
+        System.out.println(num+ " is an Armstrong Number");
+    } else System.out.println(num + " is not an Armstrong Number");
+
+    }
+}
 class Mains{
     public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in)    ;
@@ -70,8 +78,7 @@ class Mains{
     scanner.close();
     NumList num = new NumList(obj.getNum());
     Armstrong check = new Armstrong(num.getCount() , num.getNums() );
-    if (obj.getNum() ==  check.output){
-        System.out.println(obj.getNum()+ " is an Armstrong Number");
-    } else System.out.println(obj.getNum() + " is not an Armstrong Number");  
+    Checkout checkout = new Checkout(obj.getNum(),check.output);
+     
     }
 }
